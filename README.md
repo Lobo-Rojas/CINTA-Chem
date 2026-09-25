@@ -180,7 +180,7 @@ The inactive branch is therefore not simply the inverse of the active branch.
 
 The documented configuration covers BioAssay AIDs from:
 
-- start AID: `2000001`
+- start AID: `1`
 - end AID: `2283000`
 - range size: `1000`
 
