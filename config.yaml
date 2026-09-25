@@ -1,0 +1,56 @@
+# PubChem Chemogenomics Pipeline v1.0
+# Reference configuration for the validated workflow.
+# The legacy production scripts retain their validated constants internally.
+# This file keeps the documented values synchronized with those scripts.
+
+pubchem:
+  base_url: "https://ftp.ncbi.nlm.nih.gov/pubchem/Bioassay/CSV/Data"
+  start_aid: 1
+  end_aid: 2283000
+  range_size: 1000
+  min_valid_zip_bytes: 100000
+  download_retry: 10
+  download_retry_delay: 5
+  connect_timeout: 30
+  max_time: 1800
+  post_download_sleep: 2
+
+filter:
+  chunksize: 50000
+  low_value_threshold_uM: 10.0
+  max_workers: auto
+
+metadata:
+  batch_size: 100
+  request_timeout: 30
+  max_workers: 1
+  request_interval_seconds: 0.26
+  retry_attempts: 5
+  retry_sleep_base_seconds: 5
+  non_200_sleep_seconds: 2
+  exception_sleep_base_seconds: 3
+  yellow_throttle_sleep_seconds: 5
+  red_throttle_sleep_seconds: 20
+  batch_write_size: 100
+
+uniprot:
+  request_timeout: 30
+  sleep_seconds: 0.2
+
+kegg_retrieval:
+  batch_size: 25
+  request_timeout: 60
+  sleep_seconds: 1.0
+
+kegg_ko:
+  batch_size: 25
+  request_timeout: 30
+  sleep_seconds: 0.4
+
+activity:
+  low_value_threshold_uM: 10.0
+  max_pPotency: 15.0
+
+fingerprints:
+  radius: 2
+  n_bits: 2048

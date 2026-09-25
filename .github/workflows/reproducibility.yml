@@ -1,0 +1,40 @@
+name: Reproducibility checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  repository-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Check release version
+        shell: bash
+        run: |
+          test "$(cat VERSION)" = "1.0"
+          test "$(cat PIPELINE_VERSION)" = "1.0"
+
+      - name: Check Python syntax without executing the pipeline
+        run: python -m compileall -q legacy inactive src run_pipeline.py run_inactive_pipeline.py tests
+
+      - name: Check shell syntax without executing HPC jobs
+        run: |
+          bash -n submit_pipeline.sh
+          bash -n submit_pipeline_inactive.sh
+          bash -n legacy/download_pubchem.sh
+
+      - name: Run lightweight tests
+        run: pytest -q
