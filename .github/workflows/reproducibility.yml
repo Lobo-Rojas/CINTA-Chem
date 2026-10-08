@@ -24,8 +24,8 @@ jobs:
       - name: Check release version
         shell: bash
         run: |
-          test "$(cat VERSION)" = "1.0"
-          test "$(cat PIPELINE_VERSION)" = "1.0"
+          test "$(cat VERSION)" = "1.1"
+          test "$(cat PIPELINE_VERSION)" = "1.1"
 
       - name: Check Python syntax without executing the pipeline
         run: python -m compileall -q legacy inactive src run_pipeline.py run_inactive_pipeline.py tests
