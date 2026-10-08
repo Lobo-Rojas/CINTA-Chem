@@ -5,7 +5,7 @@
 
 pubchem:
   base_url: "https://ftp.ncbi.nlm.nih.gov/pubchem/Bioassay/CSV/Data"
-  start_aid: 2270000
+  start_aid: 1
   end_aid: 2283000
   range_size: 1000
   min_valid_zip_bytes: 100000

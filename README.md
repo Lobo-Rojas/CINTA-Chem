@@ -255,10 +255,10 @@ The active and inactive descriptor generators use RDKit to calculate physicochem
 
 The active orchestrator uses the values in `config.yaml` as the download definition for the release:
 
-- start AID: `2270000`
+- start AID: `1`
 - end AID: `2283000`
 - range size: `1000` AIDs
-- inclusive range count: **14 PubChem ZIP ranges**
+- inclusive range count: **2283 PubChem ZIP ranges**
 
 The bulk source is:
 
