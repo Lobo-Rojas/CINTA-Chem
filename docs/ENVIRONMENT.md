@@ -2,7 +2,7 @@
 
 ## Supported baseline
 
-The v1.0 workflow is specified for **Python 3.10**. The dependency list is in `requirements.txt`; the Conda environment definition is in `environment.yml`.
+The v1.1 workflow is specified for **Python 3.10**. The minimum dependency specification is `requirements.txt`, and the Conda environment definition is `environment.yml`.
 
 Create the recommended environment with:
 
@@ -11,21 +11,23 @@ conda env create -f environment.yml
 conda activate pubchem-chemogenomics
 ```
 
-Or with an existing Python 3.10 environment:
+Or, in an existing Python 3.10 environment:
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-## Why both files are provided
+## Dependency policy
 
-`requirements.txt` is the authoritative Python dependency list used by the workflow. `environment.yml` supplies a named Python 3.10 environment and delegates package installation to that requirements file.
+`requirements.txt` intentionally provides minimum compatible package versions rather than a complete lockfile. This makes the repository easier to install across systems but means that an exact database release must archive the environment that was actually used.
 
-RDKit is a key scientific dependency. If a platform has difficulty installing the requested RDKit build from PyPI, use a Conda/Mamba environment and install RDKit from the appropriate Conda channel before installing the remaining requirements. Do not alter the production scripts to work around an environment-specific installation problem.
+RDKit is a key scientific dependency. If platform-specific installation problems occur, use a Conda/Mamba environment and install a compatible RDKit build rather than modifying the production scripts to work around environment differences.
+
+The inactive balancing stage uses DuckDB. DuckDB is included in `requirements.txt` and is explicitly checked by `submit_pipeline_inactive.sh`.
 
 ## Capture an exact runtime environment
 
-For a publication or database release, record the exact environment actually used:
+Before or immediately after a release build, record:
 
 ```bash
 python --version
@@ -34,22 +36,22 @@ python -c "import rdkit; print('RDKit', rdkit.__version__)"
 python -c "import duckdb; print('DuckDB', duckdb.__version__)"
 ```
 
-Also record the operating system, architecture, Git commit, and retrieval dates of the external resources.
+Also record:
 
-`pip-freeze.txt` is intentionally not committed by default because it is environment-specific. Archive it with the generated database release when exact environment reconstruction is required.
+- operating system and architecture;
+- CPU and memory resources;
+- Slurm version and job information when HPC execution is used;
+- the Git commit/tag; and
+- retrieval dates for PubChem, UniProtKB, and KEGG.
 
-## Inactive branch
+Do not commit `pip-freeze.txt` by default; archive it with the generated database release when exact environment reconstruction is required.
 
-The inactive balancing stage uses DuckDB for large-table processing. Confirm that it is importable before starting that branch:
+## Reproducibility versus portability
 
-```bash
-python -c "import duckdb; print(duckdb.__version__)"
-```
-
-The supplied Slurm script `submit_pipeline_inactive.sh` performs this check and installs DuckDB if necessary.
+Recreating the named Conda environment is sufficient to reproduce the documented software stack at a baseline level. Byte-identical regeneration additionally requires the same package versions, the same upstream input snapshots, the same pipeline commit, and compatible serialization behavior.
 
 ## Hardware and storage
 
-The active workflow can be memory-intensive because several stages load or merge large CSV tables. The inactive balancing stage can require substantially more temporary disk space because it processes the large inactive observation table with DuckDB.
+The active workflow can be memory-intensive because several stages load and merge large CSV tables. The inactive balancing stage can require substantially more temporary disk space because it processes the large inactive observation table with DuckDB.
 
-For HPC execution, use node-local scratch space when available and ensure that the final output directory remains on persistent storage.
+For HPC execution, use node-local scratch space when available for temporary files, while keeping final outputs and release artifacts on persistent storage. The supplied Slurm templates currently activate the site-specific Conda environment `pubchem_env`; this is intentionally distinct from the portable environment name `pubchem-chemogenomics` defined in `environment.yml`. Record the actual environment name and package set used for the database build.

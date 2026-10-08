@@ -1,11 +1,11 @@
-# PubChem Chemogenomics Pipeline v1.0
-# Reference configuration for the validated workflow.
-# The legacy production scripts retain their validated constants internally.
-# This file keeps the documented values synchronized with those scripts.
+# PubChem Chemogenomics Pipeline v1.1
+# Reference configuration for the validated v1.1 orchestration layer.
+# The validated production scripts retain their own internal constants where applicable.
+# This file records the release-level values consumed by the orchestration layer.
 
 pubchem:
   base_url: "https://ftp.ncbi.nlm.nih.gov/pubchem/Bioassay/CSV/Data"
-  start_aid: 1
+  start_aid: 2270000
   end_aid: 2283000
   range_size: 1000
   min_valid_zip_bytes: 100000

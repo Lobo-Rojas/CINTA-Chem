@@ -4,21 +4,20 @@ The software license in `LICENSE` applies to the pipeline source code and reposi
 
 The generated database is derived from external resources, principally PubChem BioAssay and annotations retrieved from UniProtKB and KEGG. Those resources have their own terms, provenance, and licensing conditions.
 
-PubChem states that it is free to use and that most data are readily available for download, while also noting that exceptions can exist and that licensing may depend on individual data contributors. Users redistributing a derived database should therefore retain provenance and review the current source-specific licensing information.
+PubChem currently states that most of its data are readily available for download while noting that exceptions can arise from contributor licensing agreements. PubChem also provides provenance information for data contributors and source records. Users redistributing a derived database should therefore retain upstream provenance and review the current source-specific licensing information.
 
-KEGG states that its API is available for academic use and that non-academic use is subject to licensing requirements.
+KEGG currently states that its REST API is available for academic use and that non-academic use is subject to its licensing requirements.
 
-Before distributing a generated database outside the original research context, review the current terms of every upstream resource represented in the released tables.
+Before distributing generated database tables outside the original research context, review the current terms of every upstream resource represented in the released data and retain appropriate attribution.
 
-## Attribution
+## Attribution checklist
 
-For PubChem data and services, follow the current PubChem citation guidance and cite the original source of individual data where attribution is available.
+For a fixed database release, retain at minimum:
 
-For a fixed release, include:
-
-- the pipeline version;
+- pipeline version;
 - Git commit/tag;
 - source retrieval dates;
 - source URLs;
-- upstream citations where applicable;
+- relevant upstream citations;
+- contributor/source provenance where available; and
 - final-file SHA-256 checksums.

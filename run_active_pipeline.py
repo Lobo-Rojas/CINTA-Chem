@@ -11,7 +11,7 @@ from src.steps import STEP_ORDER, run_download, run_legacy
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Reproducible PubChem chemogenomics pipeline v0.2"
+        description="Reproducible PubChem chemogenomics pipeline v1.1"
     )
     parser.add_argument("--from-step", choices=STEP_ORDER, default=STEP_ORDER[0])
     parser.add_argument("--to-step", choices=STEP_ORDER)
@@ -52,7 +52,7 @@ def main() -> None:
         if step == "download":
             run_download(root, cfg)
         elif step == "validation":
-            print("Validation boundary reached. Full production validation module will be enabled in v1.0.")
+            print("Validation boundary reached. The full production validation module is not enabled in this release.")
         else:
             run_legacy(root, step)
 

@@ -5,9 +5,9 @@
 #SBATCH --error=logs/pipeline_%j.err  # Error log file
 #SBATCH --nodes=1                     # Centralized execution on a single node
 #SBATCH --ntasks=1                    # A single global processing task
-#SBATCH --cpus-per-task=32             # Cores asignados para multi-threading interno
-#SBATCH --mem=256G                     # RAM necesaria para merges pesados en memoria
-#SBATCH --time=7-12:00:00             # Maximum execution time (7 días y 12 horas)
+#SBATCH --cpus-per-task=32             # CPUs allocated for internal processing
+#SBATCH --mem=256G                     # RAM allocated for memory-intensive table merges
+#SBATCH --time=7-12:00:00             # Maximum execution time (7 days and 12 hours)
 #SBATCH --mail-type=END,FAIL          # Email notification when the job finishes or fails
 
 # Stop script execution immediately if any internal command fails
@@ -52,8 +52,8 @@ mkdir -p logs
 # 3. PIPELINE EXECUTION
 # ==============================================================================
 
-echo "Running run_pipeline.py..."
-# Clean call without invalid arguments, respecting the program's 'usage' specification
-python run_pipeline.py
+echo "Running run_active_pipeline.py (including final UniProt sequence retrieval stage)..."
+# Run the active entry point with its documented command-line interface
+python run_active_pipeline.py
 
 echo "=== Pipeline execution completed successfully: $(date) ==="

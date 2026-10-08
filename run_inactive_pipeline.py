@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the inactive-compound branch of PubChem Chemogenomics Pipeline v0.6.1."""
+"""Run the inactive-compound branch of PubChem Chemogenomics Pipeline v1.1."""
 from __future__ import annotations
 
 import argparse

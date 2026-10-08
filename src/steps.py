@@ -8,8 +8,7 @@ in their original dependency order.  The orchestration layer adds only:
 * a single entry point for the complete workflow.
 
 The scientific filtering, annotation and API logic is intentionally delegated
-to the validated scripts so that Pipeline v0.6.1 does not silently change the
-rules that produced the existing database.
+to the validated scripts so that the v1.1 pipeline does not silently change the rules that produced the existing database.
 """
 from __future__ import annotations
 
@@ -38,6 +37,7 @@ STEP_ORDER = [
     "descriptors",
     "stat_summary",
     "validation",
+    "uniprot_sequences",
 ]
 
 # These are the validated production scripts from the supplied pipeline.
@@ -58,7 +58,8 @@ COMMANDS = {
     "polypharmacology": ["python3", "legacy/polypharmacology_table_generator.py"],
     "promiscuity": ["python3", "legacy/target_promiscuity_table_generator.py"],
     "descriptors": ["python3", "legacy/molecular_descriptors_generator.py"],
-    "stat_summary": ["python3", "legacy/data_quality_score_table.py"]
+    "stat_summary": ["python3", "legacy/data_quality_score_table.py"],
+    "uniprot_sequences": ["python3", "legacy/retrieve_uniprot_sequences.py"]
 }
 
 

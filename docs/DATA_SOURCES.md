@@ -1,60 +1,90 @@
 # Data sources and provenance
 
-## Primary sources
+**Documentation review date:** 2026-10-06
 
-### PubChem BioAssay
+This repository combines public experimental and biological resources with local cheminformatics calculations. Because several upstream resources are mutable, the date and version/snapshot of each external resource used for a database build must be recorded separately from the GitHub repository version.
 
-**Role:** primary source of BioAssay observations, assay identifiers, substance identifiers, compound identifiers, activity outcomes, and standardized activity values used by the filtering stage.
+## 1. PubChem BioAssay
 
-**Bulk archive used by the v1.0 configuration:**
+**Role:** primary source of BioAssay observations, assay identifiers (AIDs), substance identifiers (SIDs), compound identifiers (CIDs), activity outcomes, standardized activity values, and associated structure information used by the filtering stage.
+
+**Bulk archive:**
 
 `https://ftp.ncbi.nlm.nih.gov/pubchem/Bioassay/CSV/Data`
 
-**AID range configured in v1.0:** `2000001–2283000`, in ranges of 1000 AIDs.
+**Configured v1.1 range:** `2270000–2283000` AIDs, using ranges of 1000 AIDs.
 
-PubChem recommends citing the PubChem resource and, where appropriate, the original data contributor associated with individual records. PubChem also notes that licensing can differ among contributing data sources. See the current PubChem download and data-source documentation before redistributing derived data.
+The v1.1 orchestrator reads this range from `config.yaml`. The historical standalone downloader `legacy/download_pubchem.sh` is preserved for provenance and is not used by the entry-point runners.
 
-### PubChem PUG/View services
+PubChem states that most data are readily available for download but that exceptions can exist because of contributor licensing agreements. PubChem also emphasizes that provenance and licensing can depend on the individual data contributor associated with a record. The current PubChem Downloads and Citation Guidelines should therefore be consulted when distributing derived data.
 
-Used by the assay metadata stage to retrieve structured assay information.
+Current official documentation reviewed for this release:
+
+- PubChem Downloads: `https://pubchem.ncbi.nlm.nih.gov/docs/downloads`
+- PubChem Citation Guidelines: `https://pubchem.ncbi.nlm.nih.gov/docs/citation-guidelines`
+- PubChem PUG REST: `https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest`
+
+## 2. PubChem PUG/View
+
+**Role:** retrieval of structured assay metadata used to annotate assay records.
+
+**Endpoint used by the metadata stage:**
 
 `https://pubchem.ncbi.nlm.nih.gov/rest/pug_view/data/assay/{aid}/JSON`
 
-### UniProtKB
+PubChem's programmatic services are subject to a shared-server usage policy and dynamic throttling. The validated request schedule used by the repository is documented in `docs/API_RATE_LIMITS.md`.
 
-Used for target metadata and target classification inputs.
+## 3. UniProtKB
+
+**Role:** UniProt accession identifiers, protein/target metadata used during annotation and classification, and final active-target protein sequences.
+
+**Search endpoint used by the historical target-annotation scripts:**
 
 `https://rest.uniprot.org/uniprotkb/search`
 
+**Entry endpoint used by the historical target-annotation scripts:**
+
 `https://rest.uniprot.org/uniprotkb/{}.json`
 
-Record the UniProt retrieval date for each released database snapshot because protein annotations can change over time.
+**Sequence-stream endpoint used by the v1.1 final sequence stage:**
 
-### KEGG
+`https://rest.uniprot.org/uniprotkb/stream`
 
-Used for KEGG gene identifiers and KO annotations.
+The sequence output is generated from the `UniProt` accessions present in the active target-promiscuity table. For an archived release, record the retrieval date and the UniProt release information available at the time of retrieval.
 
-`https://rest.kegg.jp/link/ko/`
+## 4. KEGG
 
-KEGG states that its REST API is available for academic use and requests that API clients limit calls to no more than three per second. The production scripts retain a slower validated request schedule. Review KEGG's current legal/usage terms before non-academic redistribution or service use.
+**Role:** KEGG gene identifiers and KO annotations linked to UniProt targets.
 
-## Provenance requirements for a database release
+**REST base:**
 
-A release intended to support a publication should archive:
+`https://rest.kegg.jp/`
 
-- Git tag/commit of the pipeline;
+The current KEGG API documentation states that the REST API is available for academic use and asks clients to limit API calls to no more than three per second. The production scripts use slower request schedules.
+
+Current official documentation reviewed for this release:
+
+`https://www.kegg.jp/kegg/rest/`
+
+## 5. RDKit
+
+**Role:** local calculation of molecular descriptors, Bemis-Murcko scaffolds, and Morgan fingerprints.
+
+RDKit is not an external annotation service in this workflow; its calculations are performed locally from the SMILES strings present in the generated database tables. The fingerprint settings used by the production descriptor generators are radius 2 and 2048 bits.
+
+## 6. Source-data volatility and release provenance
+
+A GitHub checkout alone does not freeze PubChem, UniProtKB, or KEGG. A later rerun can therefore differ from an archived database even when the same Git commit is used.
+
+For a database release supporting a publication, archive or otherwise immutably record:
+
+- Git commit/tag;
 - `VERSION` and `PIPELINE_VERSION`;
 - `config.yaml`;
-- source retrieval dates;
-- PubChem AID range;
-- list of downloaded PubChem ZIP files;
-- list of unavailable/skipped ranges, if any;
+- PubChem source ZIP names and SHA-256 checksums;
+- PubChem retrieval date;
+- UniProt retrieval date/release;
+- KEGG retrieval date/release information when available;
 - exact Python package versions;
-- final-table SHA-256 checksums;
-- execution logs and checkpoints when available.
-
-## Source-data volatility
-
-This pipeline accesses live external resources. A rerun in a later month or year is not guaranteed to reproduce an earlier database byte-for-byte because source records, annotations, and service responses can change.
-
-For a frozen database release, preserve the downloaded source archive or an independently archived source-data snapshot. The GitHub repository alone is the reproducibility recipe; it is not a substitute for archiving mutable external inputs.
+- final database files and SHA-256 checksums; and
+- execution logs/checkpoints when needed to reconstruct the run.

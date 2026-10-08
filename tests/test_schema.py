@@ -26,7 +26,7 @@ EXPECTED_MASTER = [
 
 def test_repository_exists():
     root = Path(__file__).resolve().parents[1]
-    assert (root / "run_pipeline.py").exists()
+    assert (root / "run_active_pipeline.py").exists()
     assert (root / "config.yaml").exists()
 
 
