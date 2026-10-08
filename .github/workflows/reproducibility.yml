@@ -32,7 +32,7 @@ jobs:
 
       - name: Check shell syntax without executing HPC jobs
         run: |
-          bash -n submit_pipeline.sh
+          bash -n submit_pipeline_active.sh
           bash -n submit_pipeline_inactive.sh
           bash -n legacy/download_pubchem.sh
 
