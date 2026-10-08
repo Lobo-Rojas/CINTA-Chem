@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=pubchem_pipeline_inactive
+#SBATCH --job-name=cinta_chem_inactive
 #SBATCH --partition=short-cpu
-#SBATCH --output=logs/pipeline_%j.log
-#SBATCH --error=logs/pipeline_%j.err
+#SBATCH --output=logs/CINTA-Chem_pipeline_%j.log
+#SBATCH --error=logs/CINTA-Chem_pipeline_%j.err
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
@@ -13,7 +13,7 @@
 set -e
 
 echo "============================================================"
-echo "PubChem Chemogenomics Pipeline"
+echo "CINTA-Chem: A Curated Interaction Network and Target Atlas for Chemogenomics"
 echo "Inactive-compound pipeline"
 echo "============================================================"
 echo "Pipeline execution started: $(date)"
@@ -37,7 +37,7 @@ fi
 # ------------------------------------------------------------
 
 echo ""
-echo "Activating virtual environment: pubchem_env..."
+echo "Activating site-specific Conda environment: pubchem_env..."
 
 conda activate pubchem_env
 
@@ -59,7 +59,7 @@ if python -c "import duckdb" >/dev/null 2>&1; then
 else
 
     echo "DuckDB is not installed."
-    echo "Installing DuckDB into pubchem_env..."
+    echo "Installing DuckDB into the site-specific Conda environment (pubchem_env)..."
 
     python -m pip install duckdb
 

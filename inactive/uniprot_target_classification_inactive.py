@@ -7,8 +7,8 @@ import pandas as pd
 # FILES
 # ==========================================================
 
-INPUT_FILE = "data/output/unique_uniprots_inactive.txt"
-OUTPUT_FILE = "data/output/uniprot_target_classification_inactive.csv"
+INPUT_FILE = "data/output/CINTA-Chem_Inactive_Unique_UniProt_IDs.txt"
+OUTPUT_FILE = "data/output/CINTA-Chem_Inactive_UniProt_Target_Classification.csv"
 
 # ==========================================================
 # READ UNIQUE UNIPROT IDS

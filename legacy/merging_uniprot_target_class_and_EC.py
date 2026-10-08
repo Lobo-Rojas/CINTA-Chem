@@ -4,11 +4,11 @@ import pandas as pd
 # FILES
 # ==========================================================
 
-MASTER_FILE = "data/output/pubchem_unique_active_annotated_master_clean.csv"
+MASTER_FILE = "data/output/CINTA-Chem_Unique_Active_Annotated_Master_Clean.csv"
 
-ANNOTATION_FILE = "data/output/uniprot_target_classification_assigned.csv"
+ANNOTATION_FILE = "data/output/CINTA-Chem_UniProt_Target_Classification_Assigned.csv"
 
-OUTPUT_FILE = "data/final/master_observations_table.csv"
+OUTPUT_FILE = "data/final/CINTA-Chem_Master_Observations.csv"
 
 
 # ==========================================================

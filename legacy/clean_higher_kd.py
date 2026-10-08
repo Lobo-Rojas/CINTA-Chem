@@ -5,9 +5,9 @@ import pandas as pd
 # FILES
 # ==========================================================
 
-INPUT_FILE = "data/output/pubchem_unique_active_annotated_master.csv"
+INPUT_FILE = "data/output/CINTA-Chem_Unique_Active_Annotated_Master.csv"
 
-OUTPUT_FILE = "data/output/pubchem_unique_active_annotated_master_clean.csv"
+OUTPUT_FILE = "data/output/CINTA-Chem_Unique_Active_Annotated_Master_Clean.csv"
 
 # ==========================================================
 # PARAMETERS
@@ -65,7 +65,7 @@ df["pPotency"] = -np.log10(
 outliers = df[df["pPotency"] > MAX_POTENCY]
 
 outliers.to_csv(
-    "data/output/pubchem_removed_unrealistic_potencies.csv",
+    "data/output/CINTA-Chem_Removed_Unrealistic_Potencies.csv",
     index=False
 )
 

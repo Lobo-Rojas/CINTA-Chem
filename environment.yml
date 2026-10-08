@@ -1,4 +1,4 @@
-name: pubchem-chemogenomics
+name: cinta-chem
 dependencies:
   - python=3.10
   - pip

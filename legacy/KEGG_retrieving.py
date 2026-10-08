@@ -6,9 +6,9 @@ import time
 # CONFIG
 # ==========================================
 
-INPUT_FILE = "data/output/unique_uniprots.txt"
+INPUT_FILE = "data/output/CINTA-Chem_Unique_UniProt_IDs.txt"
 
-OUTPUT_FILE = "data/output/uniprot_target_metadata.csv"
+OUTPUT_FILE = "data/output/CINTA-Chem_UniProt_Target_Metadata.csv"
 
 BATCH_SIZE = 25
 

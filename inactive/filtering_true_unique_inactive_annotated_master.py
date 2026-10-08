@@ -1,7 +1,7 @@
 import pandas as pd
 
-INPUT_FILE = "data/output/pubchem_inactive_annotated_master.csv"
-OUTPUT_FILE = "data/output/pubchem_unique_inactive_annotated_master.csv"
+INPUT_FILE = "data/output/CINTA-Chem_Inactive_Annotated_Master.csv"
+OUTPUT_FILE = "data/output/CINTA-Chem_Unique_Inactive_Annotated_Master.csv"
 
 print("Loading inactive master observation table...")
 df = pd.read_csv(INPUT_FILE, dtype=str, low_memory=False)

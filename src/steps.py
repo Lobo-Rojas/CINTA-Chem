@@ -178,7 +178,7 @@ def run_download(root: Path, cfg: dict) -> None:
             save_checkpoint(root, "download", cp)
             log_dir = root / "logs"
             log_dir.mkdir(parents=True, exist_ok=True)
-            with (log_dir / "download_errors.log").open("a", encoding="utf-8") as log:
+            with (log_dir / "CINTA-Chem_Download_Errors.log").open("a", encoding="utf-8") as log:
                 log.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}\t{name}\t{message}\n")
             time.sleep(p["post_download_sleep"])
             continue
@@ -200,7 +200,7 @@ def run_download(root: Path, cfg: dict) -> None:
             save_checkpoint(root, "download", cp)
             log_dir = root / "logs"
             log_dir.mkdir(parents=True, exist_ok=True)
-            with (log_dir / "download_errors.log").open("a", encoding="utf-8") as log:
+            with (log_dir / "CINTA-Chem_Download_Errors.log").open("a", encoding="utf-8") as log:
                 log.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}\t{name}\t{message}\n")
             time.sleep(p["post_download_sleep"])
             continue

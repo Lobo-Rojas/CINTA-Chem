@@ -2,15 +2,15 @@
 
 ## v1.1 — 2026-10-06
 
-Public v1.1 release of the PubChem Chemogenomics Pipeline.
+Public v1.1 release of CINTA-Chem (Curated Interaction Network and Target Atlas for Chemogenomics).
 
 ### Active workflow
 
 - Added the final `uniprot_sequences` stage to the active pipeline.
 - Added `legacy/retrieve_uniprot_sequences.py` as the validated sequence-retrieval implementation.
-- The final stage reads the `UniProt` column from `data/final/pubchem_target_promiscuity_table.csv`.
+- The final stage reads the `UniProt` column from `data/final/CINTA-Chem_Target_Promiscuity.csv`.
 - UniProt requests are sequential, batched, conservatively paced, checkpointed, and retried with `Retry-After` and exponential backoff for transient failures.
-- Added `data/final/UniProt_ID.fasta` plus retrieval-status and missing-accession reports.
+- Added `data/final/CINTA-Chem_Target_Sequences.fasta` plus retrieval-status and missing-accession reports.
 
 ### Inactive workflow
 
@@ -25,6 +25,13 @@ Public v1.1 release of the PubChem Chemogenomics Pipeline.
 - Refreshed the production-file SHA-256 manifest.
 - Removed generated runtime logs and Python bytecode from the upload package.
 - Corrected non-English comments/annotations in the Slurm template so repository-facing annotations are consistently written in English.
+
+### Database naming alignment
+
+- Standardized the public resource identity to **CINTA-Chem (Curated Interaction Network and Target Atlas for Chemogenomics)**.
+- Renamed CINTA-Chem-generated active, inactive, intermediate, final, checkpoint, cache, and retrieval-report filenames with the `CINTA-Chem_` prefix.
+- Updated repository documentation, citation metadata, environment naming, Slurm job/log names, and the GitHub remote to use the CINTA-Chem identity.
+- External PubChem source ZIP filenames remain unchanged to preserve upstream provenance.
 
 ### Scientific-processing policy
 

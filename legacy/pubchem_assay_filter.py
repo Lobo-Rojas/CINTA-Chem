@@ -19,27 +19,27 @@ CACHE_DIR = "data/smiles_cache"
 
 OUTPUT_FILE = os.path.join(
     OUTPUT_DIR,
-    "pubchem_active_compounds.csv"
+    "CINTA-Chem_Active_Compounds.csv"
 )
 
 INACTIVE_OUTPUT_FILE = os.path.join(
     OUTPUT_DIR,
-    "pubchem_inactive_compounds_active_branch.csv"
+    "CINTA-Chem_Inactive_Compounds_Active_Branch.csv"
 )
 
 CHECKPOINT_FILE = os.path.join(
     OUTPUT_DIR,
-    "checkpoint.json"
+    "CINTA-Chem_Activity_Filter_Checkpoint.json"
 )
 
 CID_CACHE_FILE = os.path.join(
     CACHE_DIR,
-    "cid_smiles_cache.csv"
+    "CINTA-Chem_CID_SMILES_Cache.csv"
 )
 
 MISSING_CIDS_FILE = os.path.join(
     OUTPUT_DIR,
-    "missing_cids.txt"
+    "CINTA-Chem_Missing_CIDs.txt"
 )
 
 CHUNKSIZE = 50000
@@ -232,7 +232,7 @@ def extract_smiles_cascade(
     Priority:
     1. SMILES contained directly in the current PubChem CSV.
     2. SMILES in the local CID cache.
-    3. Missing value, with the CID recorded in missing_cids.txt.
+    3. Missing value, with the CID recorded in CINTA-Chem_Missing_CIDs.txt.
     """
 
     cid = row["PUBCHEM_CID"]

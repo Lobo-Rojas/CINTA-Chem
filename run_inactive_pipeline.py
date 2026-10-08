@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the inactive-compound branch of PubChem Chemogenomics Pipeline v1.1."""
+"""Run the inactive-compound branch of CINTA-Chem v1.1."""
 from __future__ import annotations
 
 import argparse
@@ -86,9 +86,9 @@ def main():
 
     print("\nINACTIVE PIPELINE FINISHED")
     print("\nFinal inactive outputs:")
-    print("  data/final/master_observations_inactive_table.csv")
-    print("  data/final/inactive_molecular_descriptors.csv")
-    print("  data/final/inactive_morgan_fingerprints.pkl")
+    print("  data/final/CINTA-Chem_Inactive_Master_Observations.csv")
+    print("  data/final/CINTA-Chem_Inactive_Molecular_Descriptors.csv")
+    print("  data/final/CINTA-Chem_Inactive_Molecular_Fingerprints.pkl")
 
 if __name__ == "__main__":
     main()

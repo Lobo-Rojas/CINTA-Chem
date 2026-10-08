@@ -4,8 +4,8 @@
 # CONFIG
 # ==================================================
 
-OUTPUT_DIR="$HOME/Documents/Tani-Databases/pubchem_project/data/raw_assays"
-LOG_DIR="$HOME/Documents/Tani-Databases/pubchem_project/log"
+OUTPUT_DIR="$HOME/Documents/CINTA-Chem/data/raw_assays"
+LOG_DIR="$HOME/Documents/CINTA-Chem/log"
 
 mkdir -p "$OUTPUT_DIR"
 mkdir -p "$LOG_DIR"
@@ -17,7 +17,7 @@ END=2202000
 STEP=1000
 MIN_FILESIZE=100000
 
-ERROR_LOG="${LOG_DIR}/download_errors.log"
+ERROR_LOG="${LOG_DIR}/CINTA-Chem_Download_Errors.log"
 
 # ==================================================
 # LOGGING

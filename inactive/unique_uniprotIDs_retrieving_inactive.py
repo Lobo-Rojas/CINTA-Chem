@@ -1,7 +1,7 @@
 import pandas as pd
 
 metadata = pd.read_csv(
-    "data/output/pubchem_assay_metadata_inactive.csv"
+    "data/output/CINTA-Chem_Inactive_Assay_Metadata.csv"
 )
 
 uniprots = (
@@ -11,7 +11,7 @@ uniprots = (
 )
 
 uniprots.to_csv(
-    "data/output/unique_uniprots_inactive.txt",
+    "data/output/CINTA-Chem_Inactive_Unique_UniProt_IDs.txt",
     index=False,
     header=False
 )

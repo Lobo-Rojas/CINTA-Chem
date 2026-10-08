@@ -9,11 +9,11 @@ import pandas as pd
 # CONFIG
 # =====================================================
 
-INPUT_FILE = "data/output/pubchem_active_compounds.csv"
+INPUT_FILE = "data/output/CINTA-Chem_Active_Compounds.csv"
 
-OUTPUT_FILE = "data/output/pubchem_assay_metadata.csv"
+OUTPUT_FILE = "data/output/CINTA-Chem_Assay_Metadata.csv"
 
-CHECKPOINT_FILE = "data/output/pubchem_assay_checkpoint.json"
+CHECKPOINT_FILE = "data/output/CINTA-Chem_Assay_Metadata_Checkpoint.json"
 
 BATCH_SIZE = 100
 

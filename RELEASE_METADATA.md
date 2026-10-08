@@ -1,6 +1,8 @@
-# v1.1 release metadata
+# CINTA-Chem v1.1 release metadata
 
 - **Release:** `1.1`
+- **Database name:** `CINTA-Chem`
+- **Full name:** *Curated Interaction Network and Target Atlas for Chemogenomics*
 - **Release date:** `2026-10-06`
 - **Pipeline scope:** active and inactive PubChem chemogenomics workflows
 - **Scientific processing status:** validated production logic frozen for this release
@@ -8,10 +10,10 @@
 - **Configured PubChem AID range:** `2270000–2283000`
 - **Range size:** `1000` AIDs
 - **Configured range count:** `14`
-- **Active final master:** `data/final/master_observations_table.csv`
-- **Active target sequence output:** `data/final/UniProt_ID.fasta`
-- **Inactive final master:** `data/final/master_observations_inactive_table.csv`
-- **Balanced inactive output:** `data/final/balanced_inactive_compounds.csv`
+- **Active final master:** `data/final/CINTA-Chem_Master_Observations.csv`
+- **Active target sequence output:** `data/final/CINTA-Chem_Target_Sequences.fasta`
+- **Inactive final master:** `data/final/CINTA-Chem_Inactive_Master_Observations.csv`
+- **Balanced inactive output:** `data/final/CINTA-Chem_Balanced_Inactive_Compounds.csv`
 - **Environment baseline:** Python `3.10`
 - **Fingerprint settings:** Morgan radius `2`, `2048` bits
 
@@ -23,4 +25,4 @@ The GitHub repository does not contain the large generated database tables or Pu
 
 ## v1.1 sequence stage
 
-The final active sequence stage uses `legacy/retrieve_uniprot_sequences.py`. It reads the `UniProt` column from `data/final/pubchem_target_promiscuity_table.csv`, retrieves sequences in sequential batches, applies conservative request pacing, honors `Retry-After` when supplied, uses exponential backoff for transient failures, and checkpoints both the sequence cache and retrieval status after each successful batch.
+The final active sequence stage uses `legacy/retrieve_uniprot_sequences.py`. It reads the `UniProt` column from `data/final/CINTA-Chem_Target_Promiscuity.csv`, retrieves sequences in sequential batches, applies conservative request pacing, honors `Retry-After` when supplied, uses exponential backoff for transient failures, and checkpoints both the sequence cache and retrieval status after each successful batch.

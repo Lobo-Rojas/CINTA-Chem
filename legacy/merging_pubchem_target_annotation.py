@@ -4,13 +4,13 @@ import pandas as pd
 # FILES
 # =====================================================
 
-ASSAY_FILE = "data/output/pubchem_assay_metadata.csv"
+ASSAY_FILE = "data/output/CINTA-Chem_Assay_Metadata.csv"
 
-UNIPROT_FILE = "data/output/uniprot_target_metadata.csv"
+UNIPROT_FILE = "data/output/CINTA-Chem_UniProt_Target_Metadata.csv"
 
-KO_FILE = "data/output/kegg_ko_annotation.csv"
+KO_FILE = "data/output/CINTA-Chem_KEGG_KO_Annotation.csv"
 
-OUTPUT_FILE = "data/output/pubchem_target_annotation.csv"
+OUTPUT_FILE = "data/output/CINTA-Chem_Target_Annotation.csv"
 
 # =====================================================
 # LOAD TABLES

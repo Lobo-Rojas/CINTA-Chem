@@ -18,7 +18,7 @@ import pandas as pd
 
 UNIPROT_STREAM_URL = "https://rest.uniprot.org/uniprotkb/stream"
 
-DEFAULT_INPUT = "data/final/pubchem_target_promiscuity_table.csv"
+DEFAULT_INPUT = "data/final/CINTA-Chem_Target_Promiscuity.csv"
 DEFAULT_OUTDIR = "data/final"
 
 DEFAULT_BATCH_SIZE = 25
@@ -302,9 +302,9 @@ def main():
     outdir = Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
 
-    fasta_path = outdir / "UniProt_ID.fasta"
-    status_path = outdir / "UniProt_ID_sequence_retrieval_status.tsv"
-    missing_path = outdir / "UniProt_ID_sequence_retrieval_missing.tsv"
+    fasta_path = outdir / "CINTA-Chem_Target_Sequences.fasta"
+    status_path = outdir / "CINTA-Chem_Target_Sequence_Retrieval_Status.tsv"
+    missing_path = outdir / "CINTA-Chem_Target_Sequence_Retrieval_Missing.tsv"
 
     if not input_csv.exists():
         raise FileNotFoundError(f"Input file not found: {input_csv}")

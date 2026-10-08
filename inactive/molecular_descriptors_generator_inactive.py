@@ -14,11 +14,11 @@ from rdkit.Chem import AllChem
 # FILES
 # ==========================================================
 
-INPUT_FILE = "data/final/balanced_inactive_compounds.csv"
+INPUT_FILE = "data/final/CINTA-Chem_Balanced_Inactive_Compounds.csv"
 
-OUTPUT_FILE = "data/final/inactive_molecular_descriptors.csv"
+OUTPUT_FILE = "data/final/CINTA-Chem_Inactive_Molecular_Descriptors.csv"
 
-FINGERPRINT_FILE = "data/final/inactive_morgan_fingerprints.pkl"
+FINGERPRINT_FILE = "data/final/CINTA-Chem_Inactive_Molecular_Fingerprints.pkl"
 
 # ==========================================================
 # LOAD UNIQUE COMPOUNDS

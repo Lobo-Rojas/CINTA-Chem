@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=pubchem_pipeline
+#SBATCH --job-name=cinta_chem_active
 #SBATCH --partition=long-cpu          # Recommended partition for long-running jobs without GPU
-#SBATCH --output=logs/pipeline_%j.log # Standard output file (%j is replaced by the job ID)
-#SBATCH --error=logs/pipeline_%j.err  # Error log file
+#SBATCH --output=logs/CINTA-Chem_pipeline_%j.log # Standard output file (%j is replaced by the job ID)
+#SBATCH --error=logs/CINTA-Chem_pipeline_%j.err  # Error log file
 #SBATCH --nodes=1                     # Centralized execution on a single node
 #SBATCH --ntasks=1                    # A single global processing task
 #SBATCH --cpus-per-task=32             # CPUs allocated for internal processing
@@ -31,7 +31,7 @@ else
 fi
 
 # Activate the previously created Python 3.10 environment
-echo "Activating virtual environment: pubchem_env..."
+echo "Activating site-specific Conda environment: pubchem_env..."
 conda activate pubchem_env
 
 # ==============================================================================

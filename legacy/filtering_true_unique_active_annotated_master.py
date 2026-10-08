@@ -4,9 +4,9 @@ import pandas as pd
 # FILES
 # =====================================================
 
-INPUT_FILE = "data/output/pubchem_active_annotated_master.csv"
+INPUT_FILE = "data/output/CINTA-Chem_Active_Annotated_Master.csv"
 
-OUTPUT_FILE = "data/output/pubchem_unique_active_annotated_master.csv"
+OUTPUT_FILE = "data/output/CINTA-Chem_Unique_Active_Annotated_Master.csv"
 
 # =====================================================
 # LOAD

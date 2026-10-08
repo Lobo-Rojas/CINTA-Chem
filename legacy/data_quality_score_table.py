@@ -53,7 +53,7 @@ def generate_data_quality_scores(input_csv, output_csv):
 
 if __name__ == "__main__":
     # Adjust paths if your files are located in different directories
-    input_file = "data/final/master_observations_table.csv"
-    output_file = "data/final/data_quality_score_table.csv"
+    input_file = "data/final/CINTA-Chem_Master_Observations.csv"
+    output_file = "data/final/CINTA-Chem_Data_Quality.csv"
 
     generate_data_quality_scores(input_file, output_file)

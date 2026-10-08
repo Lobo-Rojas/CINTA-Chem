@@ -28,7 +28,7 @@ jobs:
           test "$(cat PIPELINE_VERSION)" = "1.1"
 
       - name: Check Python syntax without executing the pipeline
-        run: python -m compileall -q legacy inactive src run_pipeline.py run_inactive_pipeline.py tests
+        run: python -m compileall -q legacy inactive src run_active_pipeline.py run_inactive_pipeline.py tests
 
       - name: Check shell syntax without executing HPC jobs
         run: |

@@ -12,10 +12,10 @@ RAW_DIR = "data/raw_assays"
 OUTPUT_DIR = "data/output"
 CACHE_DIR = "data/smiles_cache"
 
-OUTPUT_FILE = os.path.join(OUTPUT_DIR, "pubchem_inactive_compounds.csv")
-CHECKPOINT_FILE = os.path.join(OUTPUT_DIR, "inactive_checkpoint.json")
-CID_CACHE_FILE = os.path.join(CACHE_DIR, "cid_smiles_cache.csv")
-MISSING_CIDS_FILE = os.path.join(OUTPUT_DIR, "inactive_missing_cids.txt")
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "CINTA-Chem_Inactive_Compounds.csv")
+CHECKPOINT_FILE = os.path.join(OUTPUT_DIR, "CINTA-Chem_Inactive_Filter_Checkpoint.json")
+CID_CACHE_FILE = os.path.join(CACHE_DIR, "CINTA-Chem_CID_SMILES_Cache.csv")
+MISSING_CIDS_FILE = os.path.join(OUTPUT_DIR, "CINTA-Chem_Inactive_Missing_CIDs.txt")
 
 CHUNKSIZE = 50000
 MAX_WORKERS = os.cpu_count() or 1

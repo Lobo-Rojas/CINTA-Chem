@@ -1,14 +1,15 @@
 cff-version: 1.2.0
-title: "PubChem Chemogenomics Pipeline"
+title: "CINTA-Chem: A Curated Interaction Network and Target Atlas for Chemogenomics"
 version: "1.1"
 type: software
-message: "If you use this pipeline, please cite the v1.1 software release and the underlying PubChem resource."
+message: "If you use CINTA-Chem, please cite the v1.1 software release and the underlying PubChem resource."
 authors:
   - family-names: "Lobo Rojas"
     given-names: "Ángel Eduardo"
 date-released: 2026-10-06
 license: MIT
 keywords:
+  - CINTA-Chem
   - PubChem
   - chemogenomics
   - bioassay

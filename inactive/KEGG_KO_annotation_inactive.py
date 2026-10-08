@@ -2,8 +2,8 @@ import pandas as pd
 import requests
 import time
 
-INPUT = "data/output/uniprot_target_metadata_inactive.csv"
-OUTPUT = "data/output/kegg_ko_annotation_inactive.csv"
+INPUT = "data/output/CINTA-Chem_Inactive_UniProt_Target_Metadata.csv"
+OUTPUT = "data/output/CINTA-Chem_Inactive_KEGG_KO_Annotation.csv"
 
 BATCH_SIZE = 25
 SLEEP = 0.3

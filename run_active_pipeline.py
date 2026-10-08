@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Single entry point for the reproducible PubChem chemogenomics pipeline."""
+"""Single entry point for the reproducible CINTA-Chem pipeline."""
 from __future__ import annotations
 
 import argparse
@@ -11,7 +11,7 @@ from src.steps import STEP_ORDER, run_download, run_legacy
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Reproducible PubChem chemogenomics pipeline v1.1"
+        description="Reproducible CINTA-Chem pipeline v1.1"
     )
     parser.add_argument("--from-step", choices=STEP_ORDER, default=STEP_ORDER[0])
     parser.add_argument("--to-step", choices=STEP_ORDER)

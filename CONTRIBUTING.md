@@ -8,7 +8,7 @@ This project is a reproducible scientific database pipeline. Every change must b
 
 The Python and shell scripts under `legacy/` and `inactive/` are preserved as the validated production implementation. Do not modify their scientific behavior merely for style, optimization, or convenience.
 
-Changes to any of the following require an explicit version change and documentation in `CHANGELOG.md`:
+Changes to any of the following normally require an explicit version change and documentation in `CHANGELOG.md`:
 
 - activity-filtering rules;
 - inactive balancing rules;
@@ -21,7 +21,7 @@ Changes to any of the following require an explicit version change and documenta
 - source-data ranges; or
 - external-service endpoints used as scientific inputs.
 
-Documentation, comments, release metadata, and reproducibility infrastructure may be updated without changing scientific processing behavior, but such changes should still be described in the release record when they affect how users run or audit the repository.
+The v1.1 CINTA-Chem naming alignment is a repository-level naming normalization: it changes file/resource names and repository-facing metadata without changing scientific-processing behavior or output content. Documentation, comments, release metadata, and reproducibility infrastructure may otherwise be updated without changing scientific processing behavior, but such changes should still be described in the release record when they affect how users run or audit the repository.
 
 ## Reproducibility checks
 

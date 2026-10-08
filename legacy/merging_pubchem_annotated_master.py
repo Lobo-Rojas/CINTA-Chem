@@ -4,11 +4,11 @@ import pandas as pd
 # FILES
 # =====================================================
 
-COMPOUND_FILE = "data/output/pubchem_active_compounds.csv"
+COMPOUND_FILE = "data/output/CINTA-Chem_Active_Compounds.csv"
 
-TARGET_FILE = "data/output/pubchem_target_annotation.csv"
+TARGET_FILE = "data/output/CINTA-Chem_Target_Annotation.csv"
 
-OUTPUT_FILE = "data/output/pubchem_active_annotated_master.csv"
+OUTPUT_FILE = "data/output/CINTA-Chem_Active_Annotated_Master.csv"
 
 # =====================================================
 # LOAD TABLES

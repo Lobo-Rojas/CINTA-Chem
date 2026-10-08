@@ -23,7 +23,7 @@ def ensure_dirs(root: Path) -> None:
 
 
 def checkpoint_path(root: Path, step: str) -> Path:
-    return root / "checkpoints" / f"{step}.json"
+    return root / "checkpoints" / f"CINTA-Chem_{step}.json"
 
 
 def load_checkpoint(root: Path, step: str) -> dict:

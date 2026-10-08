@@ -44,9 +44,9 @@ def handle_dynamic_throttling(headers):
 # =====================================================
 # CONFIG
 # =====================================================
-INPUT_FILE = "data/output/pubchem_active_compounds.csv"
-OUTPUT_FILE = "data/output/pubchem_assay_metadata.csv"
-CHECKPOINT_FILE = "data/output/pubchem_assay_checkpoint.json"
+INPUT_FILE = "data/output/CINTA-Chem_Active_Compounds.csv"
+OUTPUT_FILE = "data/output/CINTA-Chem_Assay_Metadata.csv"
+CHECKPOINT_FILE = "data/output/CINTA-Chem_Assay_Metadata_Checkpoint.json"
 
 BATCH_SIZE = 100
 REQUEST_TIMEOUT = 30

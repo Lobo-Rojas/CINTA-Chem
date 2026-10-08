@@ -6,8 +6,8 @@ import re
 # FILES
 # ==========================================================
 
-INPUT_FILE = "data/output/uniprot_target_classification_inactive.csv"
-OUTPUT_FILE = "data/output/uniprot_target_classification_assigned_inactive.csv"
+INPUT_FILE = "data/output/CINTA-Chem_Inactive_UniProt_Target_Classification.csv"
+OUTPUT_FILE = "data/output/CINTA-Chem_Inactive_UniProt_Target_Classification_Assigned.csv"
 
 
 # ==========================================================

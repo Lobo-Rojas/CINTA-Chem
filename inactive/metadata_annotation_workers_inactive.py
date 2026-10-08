@@ -74,15 +74,15 @@ def handle_dynamic_throttling(headers):
 # =====================================================
 
 INPUT_FILE = (
-    "data/output/pubchem_inactive_compounds.csv"
+    "data/output/CINTA-Chem_Inactive_Compounds.csv"
 )
 
 OUTPUT_FILE = (
-    "data/output/pubchem_assay_metadata_inactive.csv"
+    "data/output/CINTA-Chem_Inactive_Assay_Metadata.csv"
 )
 
 CHECKPOINT_FILE = (
-    "data/output/pubchem_assay_inactive_checkpoint.json"
+    "data/output/CINTA-Chem_Inactive_Assay_Metadata_Checkpoint.json"
 )
 
 BATCH_SIZE = 100
@@ -476,7 +476,7 @@ if os.path.exists(
 
     print(
         "\nChecking existing "
-        "pubchem_assay_metadata.csv..."
+        "CINTA-Chem_Inactive_Assay_Metadata.csv..."
     )
 
     try:
@@ -519,7 +519,7 @@ if os.path.exists(
             print(
                 f"Found {len(newly_reconciled):,} "
                 "AIDs already correctly written "
-                "to pubchem_assay_metadata.csv."
+                "to CINTA-Chem_Inactive_Assay_Metadata.csv."
             )
 
             processed.update(

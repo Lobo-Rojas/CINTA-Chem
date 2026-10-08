@@ -1,4 +1,4 @@
-# PubChem Chemogenomics Pipeline v1.1
+# CINTA-Chem v1.1
 # Reference configuration for the validated v1.1 orchestration layer.
 # The validated production scripts retain their own internal constants where applicable.
 # This file records the release-level values consumed by the orchestration layer.

@@ -8,7 +8,7 @@ Create the recommended environment with:
 
 ```bash
 conda env create -f environment.yml
-conda activate pubchem-chemogenomics
+conda activate cinta-chem
 ```
 
 Or, in an existing Python 3.10 environment:
@@ -54,4 +54,4 @@ Recreating the named Conda environment is sufficient to reproduce the documented
 
 The active workflow can be memory-intensive because several stages load and merge large CSV tables. The inactive balancing stage can require substantially more temporary disk space because it processes the large inactive observation table with DuckDB.
 
-For HPC execution, use node-local scratch space when available for temporary files, while keeping final outputs and release artifacts on persistent storage. The supplied Slurm templates currently activate the site-specific Conda environment `pubchem_env`; this is intentionally distinct from the portable environment name `pubchem-chemogenomics` defined in `environment.yml`. Record the actual environment name and package set used for the database build.
+For HPC execution, use node-local scratch space when available for temporary files, while keeping final outputs and release artifacts on persistent storage. The supplied Slurm templates currently activate the site-specific Conda environment `pubchem_env`; this is intentionally distinct from the portable environment name `cinta-chem` defined in `environment.yml`. Record the actual environment name and package set used for the database build.
